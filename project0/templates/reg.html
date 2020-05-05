@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,500,700,900&display=swap" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='blog.css') }}">
+    <title>Document</title>
+</head>
+<body>
+<br>
+<div class="container">
+{% with messages = get_flashed_messages() %}
+  {% if messages %}
+    <ul class=flashes>
+    {% for message in messages %}
+      <li>{{ message }}</li>
+    {% endfor %}
+    </ul>
+  {% endif %}
+{% endwith %}
+</div>
+    <nav class="navbar-dark bg-primary mb-3">
+        <div class="container">
+          <div class="row justify-content-end">
+          </div>
+        </div>
+      </nav>
+    <div class="container">
+        <h1>Sign Up</h1>
+        <form class="form" method="POST">
+            <p>E-mail or Phone</p> 
+            <input class="form-control" type="text" name="login">
+<!--            <p>Image</p>-->
+<!--            <input class="blog__img" type="file" name="img">-->
+            <br>
+            <p>Password</p>
+            <input class="form-control" type="password" name="password">
+            <br>
+            <p>Confirm password</p>
+            <input class="form-control" type="password" name="password2">
+            <br>
+            <div class="d-flex">
+                <button class="form__btn" type="submit">Sign In</button>
+            </div>
+
+        </form> 
+                <link href="{{url_for('static', filename='index.css')}}" rel="stylesheet">
+    </div>
+</body>
+</html>

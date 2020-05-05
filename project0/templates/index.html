@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <link href="https://fonts.googleapis.com/css?family=Montserrat:400,500,700,900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
+  <link href="{{url_for('static', filename='index.css')}}" rel="stylesheet">
+  <title>Blog</title>
+</head>
+
+<body>
+  <nav class="navbar-dark bg-primary">
+    <div class="container">
+      <div class="row justify-content-end">
+
+        <a class="login " href="{{ url_for('login_page') }}">Login&nbsp;&nbsp;</a>
+        <a class="login " href="{{ url_for('main') }}">Add post</a>
+
+
+      </div>
+    </div>
+  </nav>
+
+  <div class="container">
+
+    <div> {% for message in messages %}
+      <div class="blog">
+        <h2 class="blog__title">{{ message.text }}</h2>
+        {% for tag in message.tags %}
+        <p>{{ tag.text }}</p>
+        {% endfor %}
+      </div>
+      {% endfor %}
+    </div>
+
+  </div>
+</body>
+
+</html>
