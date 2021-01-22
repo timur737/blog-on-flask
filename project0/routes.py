@@ -35,12 +35,7 @@ def login_page():
 
         if user and check_password_hash(user.password, password):
             login_user(user)
-
-
-            # next_page = request.args.get('next')
-
             return redirect(url_for('main'))
-
         else:
             flash('Login or password is not correct')
     else:
